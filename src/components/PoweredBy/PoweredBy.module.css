@@ -37,3 +37,18 @@
   color: #fff;
   cursor: pointer;
 }
+
+.link {
+    color: #6b7280;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 3px rgba(107, 114, 128, 0.2);
+}
+
+.link:hover {
+    text-decoration: none;
+    color: #374151;
+    text-shadow: 0 0 8px rgba(107, 114, 128, 0.4);
+}
+

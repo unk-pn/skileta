@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import styles from "./PoweredBy.module.css";
+import c from "./PoweredBy.module.css";
 
 const PoweredBy: React.FC = () => {
   const [visible, setVisible] = useState(true);
@@ -15,10 +15,10 @@ const PoweredBy: React.FC = () => {
   if (!visible) return null;
 
   return (
-    <div className={styles.overlay}>
-      <div className={styles.modal}>
-        powered by unk-pn
-        <button className={styles.closeBtn} onClick={() => setVisible(false)}>
+    <div className={c.overlay}>
+      <div className={c.modal}>
+        <div className={c.text}>powered by <a href="https://unk-pn.ru" target="_blank" rel="noopener noreferrer" className={c.link}>unk</a></div>
+        <button className={c.closeBtn} onClick={() => setVisible(false)}>
           OK
         </button>
       </div>
