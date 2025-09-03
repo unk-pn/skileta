@@ -1,0 +1,51 @@
+.wrapper {
+    margin-top: 30px;
+}
+
+/* 1) Верхняя цитата – действительно "во всю ширину" */
+.topFullWidth {
+  width: 100%;
+  /* можешь дать фон/линию, если нужно визуально отделить */
+  /* background: #fafafa; */
+  margin: 0 0 var(--gap) 0;
+}
+
+/* Контент внутри – по той же центральной сетке, что и видео */
+.topInner {
+  max-width: min(var(--container-max), 92vw);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+}
+
+/* 2) Masonry-сетка для остальных цитат */
+.masonry {
+  max-width: min(var(--container-max), 92vw);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  column-width: clamp(220px, 28vw, 360px); /* на ПК выйдет 3–4 колонки */
+  column-gap: var(--gap);
+  widows: 1;
+  orphans: 1;
+}
+
+/* Каждая цитата – "кирпич" */
+.masonry > * {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 var(--gap);
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+}
+
+/* Читаемость на десктопе: выравнивание текста слева */
+.masonry :global(.text),
+.topInner :global(.text) {
+  text-align: left;
+}
+
+/* Для очень широких экранов — слегка расширим колонку */
+@media (min-width: 1200px) {
+  .masonry {
+    column-width: 360px;
+  }
+}

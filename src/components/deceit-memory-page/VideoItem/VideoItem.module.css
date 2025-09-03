@@ -1,0 +1,21 @@
+.video_wrapper {
+  display: flex;
+  justify-content: center;
+  max-width: min(1000px, 92vw);
+  margin: 24px auto 0;
+}
+
+.video {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* телефон */
+@media (max-width: 767px) {
+  .video_wrapper {
+    margin-top: 16px;
+  }
+}

@@ -1,0 +1,30 @@
+.scrollDownBtn {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: #dadada;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s ease;
+  z-index: 1000;
+}
+
+.scrollDownBtn:hover {
+  background: #aeaeae;
+}
+
+/* телефон — чуть меньше */
+@media (max-width: 767px) {
+  .scrollDownBtn {
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}

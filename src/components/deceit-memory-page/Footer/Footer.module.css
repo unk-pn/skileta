@@ -1,0 +1,23 @@
+/* Footer.module.css */
+.footer{
+  margin-top: 40px;
+  border-top: 1px solid #000;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 var(--container-pad);
+}
+.powered a{
+  color: #000;
+  text-decoration: none;
+}
+.powered a:hover{
+  cursor: pointer;
+  color: #323232;
+  text-decoration: underline;
+}

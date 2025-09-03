@@ -1,42 +1,32 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* index.css */
 * {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 150%;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html, body { width: 100%; overflow-x: hidden; }
+
+/* контейнерные переменные для адаптива */
+:root{
+  --container-max: 1200px;              /* ширина контента на десктопе */
+  --container-pad: clamp(8px, 2vw, 16px);
+  --gap: 24px;
+  --radius: 10px;
+  --shadow: 0 6px 20px rgba(0,0,0,.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* ноутбук */
+@media (min-width: 768px) and (max-width: 1199px){
+  :root{ --container-max: 92vw; }
+}
+
+/* телефон */
+@media (max-width: 767px){
+  :root{
+    --container-max: 100%;
+    --gap: 12px;
   }
 }
