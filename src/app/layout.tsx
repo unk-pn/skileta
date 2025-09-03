@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+
 import "./globals.css";
+import PoweredBy from "@/components/PoweredBy/PoweredBy";
 
 export const metadata: Metadata = {
   title: "skileta",
@@ -14,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <PoweredBy />
         {children}
       </body>
     </html>

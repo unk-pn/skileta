@@ -18,3 +18,5 @@ export const VideoItem = forwardRef<HTMLDivElement>((props, ref) => {
     </div>
   );
 });
+
+VideoItem.displayName = "VideoItem";
