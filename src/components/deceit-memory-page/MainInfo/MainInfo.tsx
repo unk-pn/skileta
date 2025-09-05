@@ -52,6 +52,18 @@ export const MainInfo = () => {
         Простите, что терпели меня 8 лет и целых 10.000 часов.`,
       author: "delnadris / xnxkzeu / bludeck",
     },
+    {
+      text: `спасибо всем кто был рядом когда надо
+        спасибо тем кто ценил мое присутствие в этом км
+        спасибо всем кто меня учил и кого учил я
+        спасибо тем кто помогал
+        спасибо всем кто верил
+        спасибо за крайсквад
+        спасибо за любовь
+        спасибо.
+        еще увидимся`,
+      author: "kxshmar",
+    },
   ];
 
   if (quotes.length === 0) return null;
@@ -64,7 +76,6 @@ export const MainInfo = () => {
         </div>
       </div>
       <br />
-      {/* 2) Остальные — masonry (как Pinterest) */}
       <div className={c.masonry}>
         {quotes.slice(1).map((q, i) => (
           <QuoteItem key={i} text={q.text} author={q.author} />
