@@ -1,7 +1,23 @@
 import type { Metadata } from "next";
+import { Jost } from "next/font/google";
+import { Jaini_Purva } from "next/font/google";
 
 import "./globals.css";
 import PoweredBy from "@/components/PoweredBy/PoweredBy";
+import { Header } from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
+
+const jost = Jost({
+  subsets: ["latin", "cyrillic"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-jost",
+});
+
+const jainiPurva = Jaini_Purva({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-jaini-purva",
+});
 
 export const metadata: Metadata = {
   title: "skileta",
@@ -15,9 +31,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <PoweredBy />
+      <body
+        className={`${jost.variable} ${jainiPurva.variable} ${jost.className}`}
+      >
+        {/* <PoweredBy /> */}
+        <Header />
         {children}
+        {/* <Footer /> */}
       </body>
     </html>
   );

@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
 import React, { useEffect, useRef, useState } from "react";
 import "./deceit-memory-page.module.css";
-import { Header } from "@/components/deceit-memory-page/Header/Header";
+import { Header } from "@/components/Header/Header";
 import { MainInfo } from "@/components/deceit-memory-page/MainInfo/MainInfo";
 import { VideoItem } from "@/components/deceit-memory-page/VideoItem/VideoItem";
 import { ScrollDownButton } from "@/components/deceit-memory-page/ScrollButton/ScrollButton";
-import { Footer } from "@/components/deceit-memory-page/Footer/Footer";
+import { Footer } from "@/components/Footer/Footer";
 import { ProjectTeam } from "@/components/deceit-memory-page/ProjectTeam/ProjectTeam";
 
 const DeceitMemoryPage = () => {
@@ -35,15 +35,13 @@ const DeceitMemoryPage = () => {
 
   return (
     <div className="App">
-      <Header />
       <MainInfo />
       <VideoItem ref={videoRef} />
       <ProjectTeam />
-      <Footer />
 
       {showScrollDown && <ScrollDownButton targetRef={videoRef} />}
     </div>
   );
-}
+};
 
 export default DeceitMemoryPage;
