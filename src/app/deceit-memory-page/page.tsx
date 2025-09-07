@@ -38,6 +38,7 @@ const DeceitMemoryPage = () => {
       <MainInfo />
       <VideoItem ref={videoRef} />
       <ProjectTeam />
+      {/* <Footer /> */}
 
       {showScrollDown && <ScrollDownButton targetRef={videoRef} />}
     </div>

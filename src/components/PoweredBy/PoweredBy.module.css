@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,8 +12,8 @@
 }
 
 .modal {
-  background: #fff;
-  color: #222;
+  /* background: #fff; */
+  color: #8c8c8c;
   padding: 32px 48px;
   border-radius: 16px;
   font-size: 2rem;
@@ -27,19 +27,37 @@
   flex-direction: column;
 }
 
+.input {
+  border: 1px solid #22004C;
+  background-color: #22004C;
+  margin: 16px 0;
+  padding: 8px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  color: #EFD9FF;
+  width: 100%;
+  max-width: 300px;
+}
+
 .closeBtn {
   margin-top: 16px;
   padding: 8px 24px;
   font-size: 1rem;
   border-radius: 8px;
   border: none;
-  background: #222;
-  color: #fff;
+  background: #8A38F5;
+  color: #EFD9FF;
   cursor: pointer;
 }
 
+.closeBtn:disabled {
+  background: #4b0e8a;
+  cursor: not-allowed;
+
+}
+
 .link {
-  color: #6b7280;
+  color: #abb6cc;
   text-decoration: none;
   position: relative;
   transition: all 0.3s ease;

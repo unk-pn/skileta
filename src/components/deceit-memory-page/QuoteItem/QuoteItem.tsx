@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./QuoteItem.module.css";
+import c from "./QuoteItem.module.css";
 
 interface QuoteItemProps {
   text: string;
@@ -8,9 +8,9 @@ interface QuoteItemProps {
 
 export const QuoteItem: React.FC<QuoteItemProps> = ({ text, author }) => {
   return (
-    <blockquote className={styles.quote}>
-      <p className={styles.text}>&#34;{text}&#34;</p>
-      {author && <footer className={styles.author}>— {author}</footer>}
+    <blockquote className={c.quote}>
+      <p className={c.text}>&#34;{text}&#34;</p>
+      {author && <footer className={c.author}>— {author}</footer>}
     </blockquote>
   );
 };

@@ -6,8 +6,8 @@
   height: 48px;
   border: none;
   border-radius: 50%;
-  background: #dadada;
-  color: white;
+  background: #8A38F5;
+  color: #EFD9FF;
   font-size: 1.5rem;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -16,7 +16,7 @@
 }
 
 .scrollDownBtn:hover {
-  background: #aeaeae;
+  background: #3b0978;
 }
 
 /* телефон — чуть меньше */
