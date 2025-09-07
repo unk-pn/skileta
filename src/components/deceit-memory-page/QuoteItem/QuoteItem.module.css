@@ -7,7 +7,7 @@
   box-sizing: border-box;
   border-radius: 4px;
   font-style: italic;
-  background-color: #22004C;
+  background-color: #22004c;
 
   break-inside: avoid;
   -webkit-column-break-inside: avoid;
@@ -15,18 +15,18 @@
 }
 
 .text {
-  background-color: #22004C;
+  background-color: #22004c;
   margin: 0;
-  color: #EFD9FF;
+  color: #efd9ff;
   text-align: center;
   white-space: pre-line;
 }
 
 .author {
-  background-color: #22004C;
+  background-color: #22004c;
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: #A57FFE;
+  color: #a57ffe;
   font-style: normal;
 }
 

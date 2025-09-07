@@ -49,3 +49,51 @@
     column-width: 360px;
   }
 }
+
+/* Большие экраны (1440px+) */
+@media (min-width: 1440px) {
+  .wrapper {
+    margin-top: 40px;
+  }
+
+  .masonry {
+    column-width: 400px;
+    column-gap: 32px;
+  }
+
+  .topInner {
+    padding: 0 40px;
+  }
+}
+
+/* 4K и ультраширокие экраны (1920px+) */
+@media (min-width: 1920px) {
+  .wrapper {
+    margin-top: 50px;
+  }
+
+  .masonry {
+    column-width: 450px;
+    column-gap: 40px;
+  }
+
+  .topInner {
+    padding: 0 60px;
+  }
+}
+
+/* Сверхширокие экраны (2560px+) */
+@media (min-width: 2560px) {
+  .wrapper {
+    margin-top: 60px;
+  }
+
+  .masonry {
+    column-width: 500px;
+    column-gap: 48px;
+  }
+
+  .topInner {
+    padding: 0 80px;
+  }
+}

@@ -50,6 +50,39 @@ main {
   }
 }
 
+/* Большие экраны (1440px+) */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1400px;
+    --container-pad: clamp(16px, 3vw, 32px);
+    --gap: 32px;
+    --radius: 12px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 4K и ультраширокие экраны (1920px+) */
+@media (min-width: 1920px) {
+  :root {
+    --container-max: 1600px;
+    --container-pad: clamp(24px, 4vw, 48px);
+    --gap: 40px;
+    --radius: 16px;
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Сверхширокие экраны (2560px+) */
+@media (min-width: 2560px) {
+  :root {
+    --container-max: 2000px;
+    --container-pad: clamp(32px, 5vw, 64px);
+    --gap: 48px;
+    --radius: 20px;
+    --shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
 /* Шрифты */
 .jaini-purva {
   font-family: var(--font-jaini-purva) !important;

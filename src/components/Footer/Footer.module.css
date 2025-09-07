@@ -33,7 +33,8 @@
   background: transparent;
 }
 
-.powered, .designed {
+.powered,
+.designed {
   font-family: Jost;
   font-size: 18px;
   font-weight: 400;
@@ -84,7 +85,8 @@
     border-radius: 10px;
   }
 
-  .powered, .designed {
+  .powered,
+  .designed {
     font-size: 18px;
   }
 }
@@ -118,7 +120,8 @@
     border-radius: 8px;
   }
 
-  .powered, .designed {
+  .powered,
+  .designed {
     font-size: 16px;
   }
 }
@@ -141,5 +144,86 @@
 
   .info {
     font-size: 11px;
+  }
+}
+
+/* Большие экраны (1440px+) */
+@media (min-width: 1440px) {
+  .footer {
+    height: 100px;
+    padding: 0 40px;
+  }
+
+  .list {
+    gap: 32px;
+  }
+
+  .logo > a > img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .info {
+    padding: 16px 24px;
+    border-radius: 14px;
+  }
+
+  .powered,
+  .designed {
+    font-size: 15px;
+  }
+}
+
+/* 4K и ультраширокие экраны (1920px+) */
+@media (min-width: 1920px) {
+  .footer {
+    height: 110px;
+    padding: 0 60px;
+  }
+
+  .list {
+    gap: 40px;
+  }
+
+  .logo > a > img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .info {
+    padding: 18px 28px;
+    border-radius: 16px;
+  }
+
+  .powered,
+  .designed {
+    font-size: 16px;
+  }
+}
+
+/* Сверхширокие экраны (2560px+) */
+@media (min-width: 2560px) {
+  .footer {
+    height: 120px;
+    padding: 0 80px;
+  }
+
+  .list {
+    gap: 48px;
+  }
+
+  .logo > a > img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .info {
+    padding: 20px 32px;
+    border-radius: 18px;
+  }
+
+  .powered,
+  .designed {
+    font-size: 18px;
   }
 }

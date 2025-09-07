@@ -78,10 +78,9 @@
 .image {
   position: fixed;
   height: 500px;
-  bottom: 80px;
+  bottom: 30%;
   right: -20px;
   background: transparent;
-  z-index: -1;
 }
 
 @media (max-width: 1150px) {
@@ -183,5 +182,107 @@
     font-size: 16px;
     padding: 12px 24px;
     margin-top: 16px;
+  }
+}
+
+/* Очень большие экраны (1440px+) */
+@media (min-width: 1440px) {
+  .wrapper {
+    margin-left: 200px;
+    max-width: 900px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .title {
+    font-size: 80px;
+    margin-top: 24px;
+  }
+
+  .textWrapper {
+    margin-top: 32px;
+  }
+
+  .text {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .button {
+    font-size: 26px;
+    padding: 20px 44px;
+    margin-top: 32px;
+  }
+
+  .arrow {
+    height: 18px;
+  }
+}
+
+/* 4K и ультраширокие экраны (1920px+) */
+@media (min-width: 1920px) {
+  .wrapper {
+    margin-left: 300px;
+    max-width: 1100px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .title {
+    font-size: 96px;
+    margin-top: 32px;
+  }
+
+  .textWrapper {
+    margin-top: 40px;
+  }
+
+  .text {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .button {
+    font-size: 28px;
+    padding: 22px 48px;
+    margin-top: 40px;
+  }
+
+  .arrow {
+    height: 20px;
+  }
+}
+
+/* Сверхширокие экраны (2560px+) */
+@media (min-width: 2560px) {
+  .wrapper {
+    margin-left: 400px;
+    max-width: 1300px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .title {
+    font-size: 120px;
+    margin-top: 40px;
+  }
+
+  .textWrapper {
+    margin-top: 48px;
+  }
+
+  .text {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  .button {
+    font-size: 32px;
+    padding: 24px 52px;
+    margin-top: 48px;
+  }
+
+  .arrow {
+    height: 22px;
   }
 }

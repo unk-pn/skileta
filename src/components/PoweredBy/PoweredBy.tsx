@@ -19,11 +19,25 @@ const PoweredBy: React.FC = () => {
   return (
     <div className={c.overlay}>
       <div className={c.modal}>
-        <div className={c.text}>powered by <a href="https://unk-pn.ru" target="_blank" rel="noopener noreferrer" className={c.link}>unk</a></div>
-        <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} className={c.input} placeholder="Введите пароль"/>
+        <div className={c.text}>
+          powered by{" "}
+          <a
+            href="https://unk-pn.ru"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={c.link}
+          >
+            unk
+          </a>
+        </div>
+        {/* <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} className={c.input} placeholder="Введите пароль"/>
         <button className={c.closeBtn} onClick={() => setVisible(false)} disabled={inputValue !== "1488"}>
+        OK
+        </button> */}
+        <button className={c.closeBtn} onClick={() => setVisible(false)}>
           OK
         </button>
+        <p className={c.description}>Work in progress*</p>
       </div>
     </div>
   );

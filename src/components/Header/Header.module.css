@@ -203,3 +203,63 @@
     padding: 12px 16px;
   }
 }
+
+/* Большие экраны (1440px+) */
+@media (min-width: 1440px) {
+  .header {
+    height: 100px;
+    padding: 12px 40px;
+  }
+
+  .logo {
+    height: 64px;
+  }
+
+  .nav {
+    gap: 64px;
+  }
+
+  .link {
+    font-size: 22px;
+  }
+}
+
+/* 4K и ультраширокие экраны (1920px+) */
+@media (min-width: 1920px) {
+  .header {
+    height: 110px;
+    padding: 16px 60px;
+  }
+
+  .logo {
+    height: 72px;
+  }
+
+  .nav {
+    gap: 80px;
+  }
+
+  .link {
+    font-size: 24px;
+  }
+}
+
+/* Сверхширокие экраны (2560px+) */
+@media (min-width: 2560px) {
+  .header {
+    height: 120px;
+    padding: 20px 80px;
+  }
+
+  .logo {
+    height: 80px;
+  }
+
+  .nav {
+    gap: 100px;
+  }
+
+  .link {
+    font-size: 28px;
+  }
+}
