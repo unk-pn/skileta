@@ -33,6 +33,14 @@
   background: transparent;
 }
 
+.info p {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.info p a {
+  background: rgba(0, 0, 0, 0.35);
+}
+
 .powered,
 .designed {
   font-family: Jost;
