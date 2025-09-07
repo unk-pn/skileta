@@ -30,17 +30,31 @@
   flex-direction: column;
   align-items: center;
   color: #efd9ff;
+  background: transparent;
 }
 
-.powered .designed a {
+.powered, .designed {
+  font-family: Jost;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.powered .designed a,
+.link {
   text-decoration: none;
   font-family: Jost;
+  color: #a57ffe;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.2s ease;
 }
 
-.powered .designed a:hover {
-  color: #a57ffe;
-  cursor: pointer;
-  text-decoration: underline;
+.powered .designed a:hover,
+.link:hover {
+  color: #c89dff;
+  text-decoration: none;
 }
 
 /* Планшеты */
@@ -49,7 +63,6 @@
     height: auto;
     min-height: 80px;
     padding: 20px;
-    /* flex-direction: column; */
     gap: 16px;
   }
 
@@ -64,9 +77,15 @@
   }
 
   .info {
-    font-size: 14px;
+    font-size: 18px;
     order: 2;
     text-align: center;
+    padding: 10px 16px;
+    border-radius: 10px;
+  }
+
+  .powered, .designed {
+    font-size: 18px;
   }
 }
 
@@ -92,9 +111,15 @@
   }
 
   .info {
-    font-size: 12px;
+    font-size: 16px;
     order: 2;
     text-align: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .powered, .designed {
+    font-size: 16px;
   }
 }
 
