@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-
+  position: relative;
   padding: 10px 25px;
   width: 100%;
   margin: 0 auto;
@@ -30,7 +30,7 @@
 .link {
   color: #efd9ff;
   font-family: Jost;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -41,15 +41,58 @@
   text-decoration: underline;
   cursor: pointer;
   color: #a57ffe;
-  font-family: Jost;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
 
 .link[data-active="true"] {
   color: #a57ffe !important;
+}
+
+/* Бургер-кнопка */
+.burgerButton {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.burgerButton span {
+  width: 24px;
+  height: 2px;
+  background: #efd9ff;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.burgerButton.open span:first-child {
+  transform: rotate(45deg);
+}
+
+.burgerButton.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.burgerButton.open span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Оверлей */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 @media (min-width: 1200px) {
@@ -59,12 +102,104 @@
   }
 }
 
-@media (max-width: 767px) {
+/* Планшеты */
+@media (max-width: 1024px) {
+  .header {
+    height: 80px;
+    padding: 8px 20px;
+  }
+
+  .logo {
+    height: 48px;
+  }
+
+  .nav {
+    gap: 32px;
+  }
+
+  .link {
+    font-size: 18px;
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
   .header {
     height: 70px;
-    padding: 8px 12px;
+    padding: 8px 16px;
+    justify-content: space-between;
   }
+
   .logo {
     height: 44px;
+  }
+
+  /* Показываем бургер-кнопку */
+  .burgerButton {
+    display: flex;
+  }
+
+  /* Скрываем обычную навигацию и показываем только при открытом меню */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: rgba(17, 13, 32, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 100px;
+    gap: 30px;
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+    border-left: 1px solid rgba(165, 127, 254, 0.2);
+  }
+
+  .nav.navOpen {
+    right: 0;
+  }
+
+  .nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .link {
+    font-size: 18px;
+    display: block;
+    padding: 15px 20px;
+    width: 100%;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+  }
+
+  .link:hover {
+    background-color: rgba(165, 127, 254, 0.1);
+    text-decoration: none;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+  .header {
+    height: 60px;
+    padding: 8px 12px;
+  }
+
+  .logo {
+    height: 36px;
+  }
+
+  .nav {
+    width: 260px;
+    padding-top: 80px;
+  }
+
+  .link {
+    font-size: 16px;
+    padding: 12px 16px;
   }
 }

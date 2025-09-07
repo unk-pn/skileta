@@ -6,6 +6,7 @@ import c from "./MainInfo.module.css";
 
 export const MainInfo = () => {
   const router = useRouter();
+
   return (
     <div className={c.wrapper}>
       <div className={c.title}>skileta</div>
@@ -28,9 +29,11 @@ export const MainInfo = () => {
           </p>
         </div>
         <button onClick={() => router.push("/deceit-memory-page")} className={c.button}>
-          Памятная страница
+          Памятная страница <img src={'/arrow-right.svg'} alt="arrow" className={c.arrow} />
         </button>
       </div>
+
+      <img src="/deceit.png" alt="Deceit logo" className={c.image} />
     </div>
   );
 }

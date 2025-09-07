@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import { Jaini_Purva } from "next/font/google";
@@ -36,8 +37,9 @@ export default function RootLayout({
       >
         {/* <PoweredBy /> */}
         <Header />
-        {children}
-        {/* <Footer /> */}
+        <main style={{ flex: "1" }}>{children}</main>
+        <Footer />
+        <Analytics />
       </body>
     </html>
   );

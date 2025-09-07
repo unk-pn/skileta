@@ -1,21 +1,26 @@
 .wrapper {
   margin-left: 160px;
   max-width: 750px;
+  position: relative;
+  min-height: 100vh;
+  padding-top: 32px;
+  padding-bottom: 60px;
 }
 
 .title {
-  margin-top: 36px;
-
+  margin-top: 32px;
   font-family: var(--font-jaini-purva);
   color: #efd9ff;
-  font-size: 80px;
+  font-size: 68px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  position: relative;
 }
 
 .textWrapper {
-  margin-top: 50px;
+  margin-top: 26px;
+  position: relative;
 }
 
 .text {
@@ -28,30 +33,155 @@
 }
 
 .paragraph2 {
-    margin-top: 16px;
+  margin-top: 16px;
 }
 
 .link {
   color: #a57ffe;
 }
 
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .button {
   border: none;
   border-radius: 96px;
   background: linear-gradient(90deg, #9061ff 0%, #5300b8 100%);
-  padding: 20px 58px;
-
-  margin-top: 40px;
-
+  box-shadow: 0 4px 50px 0 rgba(144, 97, 255, 0.40);
+  padding: 18px 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 8px;
+  margin-top: 28px;
   color: #efd9ff;
   font-family: Jost;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  width: fit-content;
 }
 
 .button:hover {
   cursor: pointer;
-  background: linear-gradient(90deg, #745bac 0%, #582fca 100%);
+  background: linear-gradient(90deg, #8742FF 0%, #4D00AC 100%);
+}
+
+.arrow {
+  height: 15px;
+  background: transparent;
+  margin-top: 4px;
+}
+
+.image {
+  position: fixed;
+  height: 600px;
+  bottom: 120px;
+  right: 0;
+  background: transparent;
+}
+
+@media (max-width: 1150px) {
+  .image {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .wrapper {
+    margin-left: 80px;
+    margin-right: 80px;
+    max-width: none;
+    padding-top: 24px;
+  }
+
+  .title {
+    font-size: 56px;
+    margin-top: 24px;
+  }
+
+  .textWrapper {
+    margin-top: 20px;
+  }
+
+  .text {
+    font-size: 22px;
+    line-height: 28px;
+  }
+
+  .button {
+    font-size: 22px;
+    padding: 16px 36px;
+    margin-top: 24px;
+  }
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+  .wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .title {
+    font-size: 42px;
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .textWrapper {
+    margin-top: 16px;
+  }
+
+  .text {
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
+  }
+
+  .button {
+    font-size: 18px;
+    padding: 14px 28px;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .arrow {
+    height: 12px;
+  }
+
+  .image {
+    display: none; /* Скрываем зайца на мобильных */
+  }
+}
+
+/* Очень маленькие экраны (до 480px) */
+@media (max-width: 480px) {
+  .wrapper {
+    margin-left: 16px;
+    margin-right: 16px;
+    padding-top: 16px;
+  }
+
+  .title {
+    font-size: 36px;
+    margin-top: 16px;
+  }
+
+  .text {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .button {
+    font-size: 16px;
+    padding: 12px 24px;
+    margin-top: 16px;
+  }
 }
