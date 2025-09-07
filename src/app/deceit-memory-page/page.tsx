@@ -2,12 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import "./deceit-memory-page.module.css";
-import { Header } from "@/components/Header/Header";
 import { MainInfo } from "@/components/deceit-memory-page/MainInfo/MainInfo";
 import { VideoItem } from "@/components/deceit-memory-page/VideoItem/VideoItem";
 import { ScrollDownButton } from "@/components/deceit-memory-page/ScrollButton/ScrollButton";
-import { Footer } from "@/components/Footer/Footer";
 import { ProjectTeam } from "@/components/deceit-memory-page/ProjectTeam/ProjectTeam";
+import c from "./deceit-memory-page.module.css";
 
 const DeceitMemoryPage = () => {
   const videoRef = useRef<HTMLDivElement>(null);
@@ -35,11 +34,11 @@ const DeceitMemoryPage = () => {
 
   return (
     <div className="App">
+      <div className={c.title}>Deceit memory page</div>
       <MainInfo />
       <VideoItem ref={videoRef} />
       <ProjectTeam />
       {/* <Footer /> */}
-
       {showScrollDown && <ScrollDownButton targetRef={videoRef} />}
     </div>
   );

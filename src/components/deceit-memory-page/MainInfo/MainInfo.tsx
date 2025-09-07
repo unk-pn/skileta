@@ -69,7 +69,6 @@ export const MainInfo = () => {
   if (quotes.length === 0) return null;
   return (
     <div className={c.wrapper}>
-      {/* 1) Верхняя цитата — на всю ширину экрана, контент центрируем */}
       <div className={c.topFullWidth}>
         <div className={c.topInner}>
           <QuoteItem text={quotes[0].text} author={quotes[0].author} />
