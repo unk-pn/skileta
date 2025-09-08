@@ -18,6 +18,11 @@
   list-style: none;
   display: flex;
   gap: 24px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.logo a {
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .logo > a > svg {
@@ -25,6 +30,7 @@
   height: 36px;
   transition: all 0.2s ease;
   color: #efd9ff;
+  background: rgba(0, 0, 0, 0.35);
 }
 
 .logo > a:hover > svg {
@@ -37,6 +43,7 @@
   align-items: center;
   color: #efd9ff;
   background: transparent;
+  font-size: 24px;
 }
 
 .info p {
@@ -50,7 +57,7 @@
 .powered,
 .designed {
   font-family: Jost;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 400;
   margin: 0;
   line-height: 1.4;
@@ -184,7 +191,7 @@
 
   .powered,
   .designed {
-    font-size: 15px;
+    font-size: 24px;
   }
 }
 
@@ -211,7 +218,7 @@
 
   .powered,
   .designed {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 

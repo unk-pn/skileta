@@ -1,3 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+}
+
 .wrapper {
   margin-left: 160px;
   max-width: 750px;
@@ -37,11 +47,14 @@
 
 .link {
   color: #a57ffe;
+  transition: all 0.3s ease;
 }
 
 .link:hover {
   cursor: pointer;
   text-decoration: underline;
+  text-shadow: 0 0 15px rgba(165, 127, 254, 0.5),
+    0 0 30px rgba(165, 127, 254, 0.5);
 }
 
 .button {
@@ -62,11 +75,15 @@
   font-weight: 600;
   line-height: normal;
   width: fit-content;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 0 rgba(239, 217, 255, 0);
 }
 
 .button:hover {
   cursor: pointer;
   background: linear-gradient(90deg, #8742ff 0%, #4d00ac 100%);
+  box-shadow: 4px 8px 50px 0 rgba(144, 97, 255, 0.6);
+  text-shadow: 0 0 20px rgba(239, 217, 255, 0.5), 0 0 40px rgba(165, 127, 254, 0.6);
 }
 
 .arrow {
@@ -75,13 +92,20 @@
   margin-top: 4px;
 }
 
+.imageWrapper {
+  -webkit-user-select: none; /* Chrome/Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none; /* Стандартный синтаксис */
+}
+
 .image {
-  position: fixed;
-  height: 500px;
-  bottom: 30%;
+  bottom: 25%;
   right: -20px;
   background: transparent;
+  pointer-events: none;
 }
+
 
 @media (max-width: 1150px) {
   .image {

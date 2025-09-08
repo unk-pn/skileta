@@ -13,10 +13,13 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   transition: background 0.2s ease;
   z-index: 1000;
+  box-shadow: 0 4px 50  px 0 rgba(144, 97, 255, 0.4);
+  transition: all 0.3s ease;
 }
 
 .scrollDownBtn:hover {
-  background: #3b0978;
+  background: #6923be;
+  box-shadow: 4px 8px 50px 0 rgba(144, 97, 255, 0.6);
 }
 
 /* телефон — чуть меньше */
