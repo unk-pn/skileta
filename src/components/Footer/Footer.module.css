@@ -20,9 +20,15 @@
   gap: 24px;
 }
 
-.logo > a > img {
+.logo > a > svg {
   width: 36px;
   height: 36px;
+  transition: all 0.2s ease;
+  color: #efd9ff;
+}
+
+.logo > a:hover > svg {
+  color: #a57ffe;
 }
 
 .info {
@@ -80,7 +86,7 @@
     order: 1;
   }
 
-  .logo > a > img {
+  .logo > a > svg {
     width: 32px;
     height: 32px;
   }
@@ -115,7 +121,7 @@
     order: 1;
   }
 
-  .logo > a > img {
+  .logo > a > svg {
     width: 28px;
     height: 28px;
   }
@@ -145,7 +151,7 @@
     gap: 12px;
   }
 
-  .logo > a > img {
+  .logo > a > svg {
     width: 24px;
     height: 24px;
   }
@@ -166,7 +172,7 @@
     gap: 32px;
   }
 
-  .logo > a > img {
+  .logo > a > svg {
     width: 44px;
     height: 44px;
   }
@@ -193,7 +199,7 @@
     gap: 40px;
   }
 
-  .logo > a > img {
+  .logo > a > svg {
     width: 48px;
     height: 48px;
   }
@@ -220,7 +226,7 @@
     gap: 48px;
   }
 
-  .logo > a > img {
+  .logo > a > svg {
     width: 52px;
     height: 52px;
   }
