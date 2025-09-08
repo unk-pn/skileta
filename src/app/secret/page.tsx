@@ -16,11 +16,9 @@ export default function SecretPage() {
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            // Автоматическое воспроизведение со звуком началось успешно
             console.log("Video autoplay with sound started successfully");
           })
           .catch((error) => {
-            // Если не удалось со звуком, пробуем без звука
             console.log(
               "Autoplay with sound was prevented, trying muted:",
               error

@@ -10,8 +10,10 @@ const PoweredBy: React.FC = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    setVisible(true);
-    setInputValue("");
+    if (pathname !== "/secret") {
+      setVisible(true);
+      setInputValue("");
+    }
   }, [pathname]);
 
   if (!visible) return null;
