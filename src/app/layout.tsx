@@ -35,7 +35,7 @@ export default function RootLayout({
       <body
         className={`${jost.variable} ${jainiPurva.variable} ${jost.className}`}
       >
-        <PoweredBy />
+        {/* <PoweredBy /> */}
         <Header />
         <main style={{ flex: "1" }}>{children}</main>
         <Footer />

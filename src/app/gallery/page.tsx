@@ -1,9 +1,10 @@
 import React from 'react'
+import c from './gallery.module.css'
 
 const page = () => {
   return (
     <div>
-      Gallery Page
+      <div className={c.title}>Gallery</div>
     </div>
   )
 }

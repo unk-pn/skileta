@@ -30,6 +30,11 @@
   font-style: normal;
 }
 
+.greenText {
+  color: #22004c;
+  background: transparent;
+}
+
 /* телефон */
 @media (max-width: 767px) {
   .quote {
