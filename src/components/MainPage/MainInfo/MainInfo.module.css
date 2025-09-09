@@ -5,7 +5,7 @@
   justify-content: space-between;
   width: 100%;
   background: transparent;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .wrapper {
@@ -13,7 +13,8 @@
   max-width: 750px;
   position: relative;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
+  overflow: visible;
 }
 
 .title {
@@ -30,6 +31,7 @@
 .textWrapper {
   margin-top: 26px;
   position: relative;
+  padding-bottom: 60px;
 }
 
 .text {
@@ -68,6 +70,7 @@
   flex-direction: row;
   gap: 8px;
   margin-top: 28px;
+  margin-bottom: 20px;
   color: #efd9ff;
   font-family: Jost;
   font-size: 24px;
@@ -83,7 +86,8 @@
   cursor: pointer;
   background: linear-gradient(90deg, #8742ff 0%, #4d00ac 100%);
   box-shadow: 4px 8px 50px 0 rgba(144, 97, 255, 0.6);
-  text-shadow: 0 0 20px rgba(239, 217, 255, 0.5), 0 0 40px rgba(165, 127, 254, 0.6);
+  text-shadow: 0 0 20px rgba(239, 217, 255, 0.5),
+    0 0 40px rgba(165, 127, 254, 0.6);
 }
 
 .arrow {
@@ -105,7 +109,6 @@
   background: transparent;
   pointer-events: none;
 }
-
 
 @media (max-width: 1150px) {
   .image {

@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <div className={c.page}>
       <MainInfo />
-      {/* <Footer /> */}
     </div>
   );
 }
