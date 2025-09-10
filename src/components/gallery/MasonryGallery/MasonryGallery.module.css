@@ -1,0 +1,130 @@
+.wrapper {
+  margin-top: 30px;
+  --gap: 16px;
+  --container-max: 1600px;
+  --container-pad: 20px;
+}
+
+.masonry {
+  max-width: min(var(--container-max), 92vw);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  column-width: clamp(250px, 30vw, 400px);
+  column-gap: var(--gap);
+  widows: 1;
+  orphans: 1;
+}
+
+.masonry > * {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 var(--gap);
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.item {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(144, 97, 255, 0.3);
+}
+
+.image {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  object-fit: cover;
+}
+
+.image:hover {
+  transform: scale(1.02);
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 767px) {
+  .wrapper {
+    --gap: 12px;
+    --container-pad: 16px;
+    margin-top: 20px;
+  }
+  
+  .masonry {
+    column-width: clamp(180px, 45vw, 280px);
+  }
+  
+  .item {
+    border-radius: 8px;
+  }
+  
+  .image {
+    border-radius: 8px;
+  }
+}
+
+/* Планшеты (768px - 1199px) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .wrapper {
+    --gap: 16px;
+    --container-pad: 24px;
+  }
+  
+  .masonry {
+    column-width: clamp(220px, 28vw, 320px);
+  }
+}
+
+/* Десктоп (от 1200px) */
+@media (min-width: 1200px) {
+  .masonry {
+    column-width: 360px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .wrapper {
+    margin-top: 40px;
+    --gap: 20px;
+    --container-max: 1800px;
+  }
+
+  .masonry {
+    column-width: 380px;
+    column-gap: 20px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .wrapper {
+    margin-top: 50px;
+    --gap: 24px;
+    --container-max: 2000px;
+  }
+
+  .masonry {
+    column-width: 420px;
+    column-gap: 24px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .wrapper {
+    margin-top: 60px;
+    --gap: 28px;
+    --container-max: 2400px;
+  }
+
+  .masonry {
+    column-width: 450px;
+    column-gap: 28px;
+  }
+}

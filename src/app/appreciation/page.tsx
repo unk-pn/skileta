@@ -1,7 +1,7 @@
 'use client';
 
 import React from "react";
-import { Accordion } from '../../components/Accordion/Accordion';
+import { Accordion } from '../../components/appreciation/Accordion/Accordion';
 import c from './appreciation.module.css'
 
 const page = () => {

@@ -10,7 +10,7 @@ export const MainInfo = () => {
   return (
     <div className={c.container}>
       <div className={c.wrapper}>
-        <div className={c.title} onClick={() => router.push('/secret')}>skileta</div>
+        <div className={c.title}>skileta</div>
   
         <div className={c.textWrapper}>
           <div className={c.text}>

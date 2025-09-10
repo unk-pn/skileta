@@ -4,9 +4,9 @@ import { Jost } from "next/font/google";
 import { Jaini_Purva } from "next/font/google";
 
 import "./globals.css";
-import PoweredBy from "@/components/PoweredBy/PoweredBy";
-import { Header } from "@/components/Header/Header";
-import { Footer } from "@/components/Footer/Footer";
+import PoweredBy from "@/components/global/PoweredBy/PoweredBy";
+import { Header } from "@/components/global/Header/Header";
+import { Footer } from "@/components/global/Footer/Footer";
 
 const jost = Jost({
   subsets: ["latin", "cyrillic"],

@@ -50,9 +50,12 @@
   font-size: 1rem;
   border-radius: 8px;
   border: none;
-  background: #8A38F5;
-  color: #EFD9FF;
   cursor: pointer;
+  background: #843bea;
+}
+
+.closeBtn:hover {
+  background: #7b2de6;
 }
 
 .closeBtn:disabled {
