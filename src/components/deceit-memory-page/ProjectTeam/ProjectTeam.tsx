@@ -31,7 +31,6 @@ export const ProjectTeam: React.FC = () => {
             <li>lipst1kk - Геймплей.</li>
             <li>melw1s - Геймплей.</li>
             <li>kaleqil - Геймплей.</li>
-            <li>Magziol - Геймплей.</li>
           </ul>
         </div>
       )}

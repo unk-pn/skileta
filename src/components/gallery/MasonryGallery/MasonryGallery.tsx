@@ -17,6 +17,11 @@ export const MasonryGallery = () => {
     { id: 11, src: "/gallery/11.jpg", alt: "Photo 11" },
     { id: 12, src: "/gallery/12.jpg", alt: "Photo 12" },
     { id: 13, src: "/gallery/13.jpg", alt: "Photo 13" },
+    { id: 14, src: "/gallery/14.jpg", alt: "Photo 14" },
+    { id: 15, src: "/gallery/15.jpg", alt: "Photo 15" },
+    { id: 16, src: "/gallery/16.jpg", alt: "Photo 16" },
+    { id: 17, src: "/gallery/17.jpg", alt: "Photo 17" },
+    { id: 18, src: "/gallery/18.jpg", alt: "Photo 18" },
   ];
 
   return (
