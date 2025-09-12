@@ -36,7 +36,7 @@ export const MainInfo = () => {
       </div>
 
       <div className={c.imageWrapper}>
-        <img src="/deceit.png" alt="Deceit logo" className={c.image} />
+        <img src="/deceit.png" alt="Deceit logo" className={c.image} onClick={() => router.push("https://worldmakers.com")} />
       </div>
     </div>
   );

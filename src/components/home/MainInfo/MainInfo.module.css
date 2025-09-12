@@ -108,10 +108,10 @@
   right: -20px;
   background: transparent;
   transition: all 0.5s ease;
-  /* pointer-events: none;jyb */
 }
 
 .image:hover {
+  cursor: pointer;
   filter: drop-shadow(5px 0 10px rgba(135, 83, 255, 0.4));
 }
 
