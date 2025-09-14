@@ -6,13 +6,15 @@ import c from "./PoweredBy.module.css";
 
 const PoweredBy: React.FC = () => {
   const [visible, setVisible] = useState(true);
+  const [open, setOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const pathname = usePathname();
 
   useEffect(() => {
     if (pathname !== "/secret") {
       setVisible(true);
-      setInputValue("");
+      setOpen(false);
+      // setInputValue("");
     }
   }, [pathname]);
 
@@ -31,15 +33,33 @@ const PoweredBy: React.FC = () => {
           >
             unk
           </a>
+          <p>Скоро данная страница откроется.</p>
         </div>
-        {/* <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} className={c.input} placeholder="Введите пароль"/>
-        <button className={c.closeBtn} onClick={() => setVisible(false)} disabled={inputValue !== "1488"}>
-        OK
-        </button> */}
-        <button className={c.closeBtn} onClick={() => setVisible(false)}>
+        {open && (
+          <>
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              className={c.input}
+              placeholder="Введите пароль"
+            />
+            <button
+              className={c.closeBtn}
+              onClick={() => setVisible(false)}
+              disabled={inputValue !== "27072021"}
+            >
+              OK
+            </button>
+          </>
+        )}
+
+        {/* <button className={c.closeBtn} onClick={() => setVisible(false)}>
           OK
-        </button>
-        <p className={c.description}>Work in progress*</p>
+        </button> */}
+        <p className={c.description}>
+          Work in progress<span onClick={() => setOpen(true)}>*</span>
+        </p>
       </div>
     </div>
   );
