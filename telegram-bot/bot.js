@@ -15,12 +15,31 @@ bot.onText(/\/echo (.+)/, (msg, match) => {
 });
 
 bot.onText(/\/start/, (msg) => {
-  const userId = String(msg.from?.id);
   const chatId = msg.chat.id;
   bot.sendMessage(
     chatId,
-    `Привет, ${msg.from?.username}!\nНапиши цитату которая появится на сайте`
+    `Привет, ${msg.from?.username}!\n\nНапиши цитату которая появится на сайте`
   );
+});
+
+bot.onText(/\/new/, async (msg) => {
+  const userId = String(msg.from?.id);
+  const chatId = msg.chat.id;
+
+  if (userStates.has(userId)) {
+    userStates.delete(userId);
+  }
+
+  bot.sendMessage(chatId, "Напишите новую цитату:");
+});
+
+bot.onText(/\/cancel/, (msg) => {
+  const userId = String(msg.from?.id);
+  const chatId = msg.chat.id;
+  if (userStates.has(userId)) {
+    userStates.delete(userId);
+    bot.sendMessage(chatId, "Отменено");
+  }
 });
 
 bot.on("message", async (msg) => {
@@ -28,7 +47,7 @@ bot.on("message", async (msg) => {
   const text = msg.text;
   const userId = String(msg.from?.id);
 
-  if (!text || text.startsWith("/")) return 
+  if (!text || text.startsWith("/")) return;
 
   if (userStates.has(userId)) {
     const savedData = userStates.get(userId);
@@ -51,21 +70,28 @@ bot.on("message", async (msg) => {
       });
 
       userStates.delete(userId);
-      bot.sendMessage(chatId, "Цитата сохранена")
+      bot.sendMessage(chatId, "Цитата сохранена");
     } catch {
       bot.sendMessage(chatId, `Ошибка сохранения`);
     }
   } else {
-    userStates.set(userId, { quote: text, step: 'waiting_username' })
-    bot.sendMessage(chatId, 'Отправьте ник который будет отображаться на сайте\nДля отмены напишите /cancel')
-  }
-});
+    try {
+      const existingUser = await prisma.user.findUnique({
+        where: { telegramId: userId },
+      });
 
-bot.onText(/\/cancel/, (msg) => {
-  const userId = String(msg.from?.id);
-  const chatId = msg.chat.id;
-  if (userStates.has(userId)) {
-    userStates.delete(userId)
-    bot.sendMessage(chatId, "Отменено")
+      if (existingUser) {
+        bot.sendMessage(
+          chatId,
+          `У вас уже есть цитата: "${existingUser.quote}" — "${existingUser.quoteUsername}"\n\n` +
+            `Для создания новой цитаты напишите /new`
+        );
+      } else {
+        userStates.set(userId, { quote: text, step: 'waiting_username' })
+        bot.sendMessage(chatId, 'Отправьте ник который будет отображаться на сайте\n\nДля отмены напишите /cancel')
+      }
+    } catch {
+      bot.sendMessage(chatId, "Ошибка проверки данных");
+    }
   }
 });

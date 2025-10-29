@@ -38,20 +38,45 @@ const Quotes = () => {
   }, []);
 
   return (
-    <div>
-      {loading && <div className={c.loader}></div>}
-      {quotes &&
-        quotes.map((quote) => (
-          <QuoteItem
-            key={quote.username}
-            text={quote.quote}
-            author={quote.username}
-          />
-        ))}
-        <div>
-          <h1>Хотите выложить свою цитату?</h1>
-          <p>Отправьте свою цитату в телеграм бота: <a href="https://t.me/skileta_bot" target="_blank">@skileta_bot</a></p>
+    <div className={c.container}>
+      <div className={c.header}>
+        <h1 className={c.title}>Quotes</h1>
+      </div>
+
+      {loading && (
+        <div className={c.loadingContainer}>
+          <div className={c.loader}></div>
         </div>
+      )}
+
+      {quotes && quotes.length > 0 && (
+        <div className={c.quotesGrid}>
+          {quotes.map((quote) => (
+            <QuoteItem
+              key={quote.id}
+              text={quote.quote}
+              author={quote.quoteUsername}
+            />
+          ))}
+        </div>
+      )}
+
+      <div className={c.botSection}>
+        <h2 className={c.botTitle}>Хотите добавить свою цитату?</h2>
+        <a
+          href="https://t.me/skileta_bot"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={c.botLink}
+        >
+          <img
+            src="/telegram-logo.png"
+            alt="tg logo"
+            className={c.telegramIcon}
+          />
+          Написать боту
+        </a>
+      </div>
     </div>
   );
 };

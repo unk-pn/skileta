@@ -1,15 +1,217 @@
+.container {
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-jaini-purva);
+  font-size: 4rem;
+  color: #efd9ff;
+  margin-bottom: 16px;
+  text-shadow: 0 0 20px rgba(239, 217, 255, 0.3);
+}
+
+.quotesGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.botSection {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+}
+
+.botTitle {
+  font-family: Jost;
+  font-size: 2rem;
+  color: #efd9ff;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.botLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(90deg, #9061ff 0%, #5300b8 100%);
+  color: #efd9ff;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 50px;
+  font-family: Jost;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(144, 97, 255, 0.3);
+}
+
+.botLink:hover {
+  background: linear-gradient(90deg, #8742ff 0%, #4d00ac 100%);
+  box-shadow: 0 8px 30px rgba(144, 97, 255, 0.5);
+  text-shadow: 0 0 15px rgba(239, 217, 255, 0.8);
+}
+
+.telegramIcon {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+  filter: brightness(1) drop-shadow(0 0 4px rgba(239, 217, 255, 0.3));
+  object-fit: fill;
+  border-radius: 50%;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
 .loader {
-  width: 32px;
+  width: 48px;
   aspect-ratio: 1;
-  --_g: no-repeat radial-gradient(farthest-side,#000 90%,#0000);
+  --_g: no-repeat radial-gradient(farthest-side, #9061ff 90%, #0000);
   background: var(--_g), var(--_g), var(--_g), var(--_g);
   background-size: 40% 40%;
-  animation: l46 1s infinite;
+  animation: l46 1.2s infinite;
 }
+
 @keyframes l46 {
-  0%  {background-position: 0 0      ,100% 0,100% 100%,0 100%}
+  0% {
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  }
   40%,
-  50% {background-position: 100% 100%,100% 0,0    0   ,0 100%}
+  50% {
+    background-position: 100% 100%, 100% 0, 0 0, 0 100%;
+  }
   90%,
-  100%{background-position: 100% 100%,0 100%,0    0   ,100% 0}
+  100% {
+    background-position: 100% 100%, 0 100%, 0 0, 100% 0;
+  }
+}
+
+/* Мобильные устройства (до 768px) */
+@media (max-width: 767px) {
+  .container {
+    padding: 20px 16px;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .quotesGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .botSection {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .botTitle {
+    font-size: 1.6rem;
+  }
+
+  .botDescription {
+    font-size: 1rem;
+  }
+
+  .botLink {
+    padding: 14px 24px;
+    font-size: 1rem;
+  }
+}
+
+/* Планшеты (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    padding: 32px 24px;
+  }
+
+  .title {
+    font-size: 3.2rem;
+  }
+
+  .quotesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .botSection {
+    padding: 32px;
+  }
+}
+
+/* Большие экраны (1440px+) */
+@media (min-width: 1440px) {
+  .container {
+    padding: 60px 40px;
+  }
+
+  .title {
+    font-size: 5rem;
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+  }
+
+  .quotesGrid {
+    max-width: 1400px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 32px;
+    margin-bottom: 16px;
+  }
+
+  .botSection {
+    padding: 50px;
+    border-radius: 24px;
+  }
+
+  .botTitle {
+    font-size: 2.4rem;
+  }
+
+  .botDescription {
+    font-size: 1.4rem;
+  }
+}
+
+/* 4K экраны (1920px+) */
+@media (min-width: 1920px) {
+  .container {
+    padding: 80px 60px;
+  }
+
+  .title {
+    font-size: 6rem;
+  }
+
+  .quotesGrid {
+    max-width: 1600px;
+    gap: 40px;
+  }
+
+  .botTitle {
+    font-size: 2.8rem;
+  }
 }
