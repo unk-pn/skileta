@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 import c from "./VideoItem.module.css";
 
 export const VideoItem = forwardRef<HTMLDivElement>((props, ref) => {
