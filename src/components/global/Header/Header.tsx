@@ -15,6 +15,7 @@ export const Header = () => {
     { href: "/deceit-memory-page", label: "Памятная страница" },
     { href: "/gallery", label: "Галерея" },
     { href: "/appreciation", label: "Благодарности" },
+    { href: "/quotes", label: "Цитаты" },
   ];
 
   const toggleMenu = () => {
