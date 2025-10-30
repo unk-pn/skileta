@@ -6,6 +6,10 @@ const userStates = new Map<
   string,
   { quote: string; step: "waiting_quote" | "waiting_username" }
 >();
+const moderationMessages = new Map<
+  string,
+  { mod1MessageId: number; mod2MessageId: number }
+>();
 
 export async function POST(request: NextRequest) {
   try {
@@ -37,12 +41,33 @@ export async function POST(request: NextRequest) {
               "Ваша цитата одобрена и опубликована!"
             );
 
-            await editMessage(moderatorChatId, messageId, "Цитата одобрена.");
+            // await editMessage(moderatorChatId, messageId, "Цитата одобрена.");
+            const messageIds = moderationMessages.get(userId);
+            if (messageIds) {
+              const approvedText = `✅ ОДОБРЕНО\n\nМодератор: @${callbackQuery.from.username}\n\n"${user.quote}" — ${user.quoteUsername}\n\nАвтор: @${user.username}`;
+              await editMessage(
+                parseInt(process.env.MODERATOR1_CHAT_ID!),
+                messageIds.mod1MessageId,
+                approvedText
+              );
+              await editMessage(
+                parseInt(process.env.MODERATOR2_CHAT_ID!),
+                messageIds.mod2MessageId,
+                approvedText
+              );
+              moderationMessages.delete(userId);
+            } else {
+              const approvedText = `Одобрено\n\nМодератор: @${callbackQuery.from.username}\n\n"${user.quote}" — ${user.quoteUsername}\n\nАвтор: @${user.username}`;
+              await editMessage(moderatorChatId, messageId, approvedText);
+            }
           } else {
             const user = await prisma.user.findUnique({
               where: { telegramId: userId },
             });
+
             if (user) {
+              const rejectedText = `Отклонено\n\nМодератор: @${callbackQuery.from.username}\n\n"${user.quote}" — ${user.quoteUsername}\n\nАвтор: @${user.username}`;
+
               await sendMessage(
                 parseInt(user.chatId),
                 "Ваша цитата отклонена модератором."
@@ -52,11 +77,22 @@ export async function POST(request: NextRequest) {
                 where: { telegramId: userId },
               });
 
-              await editMessage(
-                moderatorChatId,
-                messageId,
-                "Цитата отклонена."
-              );
+              const messageIds = moderationMessages.get(userId);
+              if (messageIds) {
+                await editMessage(
+                  parseInt(process.env.MODERATOR1_CHAT_ID!),
+                  messageIds.mod1MessageId,
+                  rejectedText
+                );
+                await editMessage(
+                  parseInt(process.env.MODERATOR2_CHAT_ID!),
+                  messageIds.mod2MessageId,
+                  rejectedText
+                );
+                moderationMessages.delete(userId);
+              } else {
+                await editMessage(moderatorChatId, messageId, rejectedText);
+              }
             }
           }
           await answerCallbackQuery(
@@ -143,14 +179,12 @@ export async function POST(request: NextRequest) {
       const savedData = userStates.get(userId)!;
 
       if (savedData.step === "waiting_quote") {
-        // Пользователь написал цитату, теперь ждем username
         userStates.set(userId, { quote: text, step: "waiting_username" });
         await sendMessage(chatId, "Теперь напишите имя автора цитаты:");
         return NextResponse.json({ ok: true });
       }
 
       if (savedData.step === "waiting_username") {
-        // Пользователь написал username, сохраняем в базу
         try {
           await prisma.user.upsert({
             where: { telegramId: userId },
@@ -248,24 +282,42 @@ async function SendMessageToModerator(
     ],
   };
 
-  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+  const modText = `🔍 Новая цитата на модерацию:\n\n"${quote}" — ${quoteUsername}\n\nНаписал: @${username}`;
+
+  const res1 = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       chat_id: moderator1ChatId,
-      text: `🔍 Новая цитата на модерацию:\n\n"${quote}" — ${quoteUsername}\n\nНаписал: @${username}`,
+      text: modText,
       reply_markup: keyboard,
     }),
   });
-  await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+  const res2 = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       chat_id: moderator2ChatId,
-      text: `🔍 Новая цитата на модерацию:\n\n"${quote}" — ${quoteUsername}\n\nНаписал: @${username}`,
+      text: modText,
       reply_markup: keyboard,
     }),
   });
+
+  if (!res1.ok || !res2.ok) {
+    throw new Error("Failed to send message to moderators");
+  }
+
+  const data1 = await res1.json();
+  const data2 = await res2.json();
+
+  moderationMessages.set(userId, {
+    mod1MessageId: data1.result.message_id,
+    mod2MessageId: data2.result.message_id,
+  });
+
+  setTimeout(() => {
+    moderationMessages.delete(userId);
+  }, 24 * 60 * 60 * 1000); // 24 часа
 }
 
 async function editMessage(chatId: number, messageId: number, text: string) {
