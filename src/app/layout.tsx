@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     default: "skileta - Памятная страница Deceit 1",
   },
   description:
-    "Памятный сайт в честь игры Deceit 1 и ее сообщества. Вы можете поделиться своими воспоминаниями, историями и пожеланиями для всех, кто играл с вами в одних матчах.",
+    "Памятный сайт в честь игры Deceit 1 и ее сообщества. Вы можете поделиться своими воспоминаниями, пожеланиями для всех, кто играл с вами.",
   keywords: ["skileta", "deceit"],
   authors: [{ name: "unk_pn" }],
   creator: "unk_pn",
@@ -61,6 +61,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
+      <head>
+        <meta name="yandex-verification" content="c15ffb2a684f0997" />
+        <meta
+          name="google-site-verification"
+          content="jUiz7OlsEk3-9nwK6c3Cbwz18D6Hmr3mLt4a3"
+        />
+      </head>
       <body
         className={`${jost.variable} ${jainiPurva.variable} ${jost.className}`}
       >
