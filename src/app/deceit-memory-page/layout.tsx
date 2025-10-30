@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     description: "Коллекция воспоминаний от пользователей skileta.ru",
     url: "https://skileta.ru/gallery",
   },
+  alternates: {
+    canonical: "https://skileta.ru/deceit-memory-page",
+  },
 };
 
 export default function MemoryLayout({

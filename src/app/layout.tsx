@@ -49,6 +49,10 @@ export const metadata: Metadata = {
     description: "Памятный сайт в честь игры Deceit 1 и ее сообщества",
     siteName: "skileta",
   },
+  metadataBase: new URL("https://skileta.ru"),
+  alternates: {
+    canonical: "https://skileta.ru",
+  },
 };
 export default function RootLayout({
   children,
