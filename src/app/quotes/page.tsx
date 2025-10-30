@@ -64,6 +64,7 @@ const Quotes = () => {
       <div className={c.botSection}>
         <h2 className={c.botTitle}>Хотите добавить свою цитату?</h2>
         <a
+          // href="https://t.me/skileta_quote_bot"
           href="https://t.me/skileta_bot"
           target="_blank"
           rel="noopener noreferrer"

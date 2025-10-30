@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
     if (text === "/start") {
       await sendMessage(
         chatId,
-        `Привет, ${msg.from?.username}!\n\nНапиши цитату которая появится на сайте`
+        `Привет, ${msg.from?.username}!\n\nДля создания цитаты напишите /new\nДля помощи напишите /info`
       );
       return NextResponse.json({ ok: true });
     }
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
       if (userStates.has(userId)) {
         userStates.delete(userId);
       }
-      await sendMessage(chatId, "Напишите новую цитату:");
+      await sendMessage(chatId, "Напишите цитату:");
       return NextResponse.json({ ok: true });
     }
 
@@ -42,6 +42,34 @@ export async function POST(request: NextRequest) {
         await sendMessage(chatId, "Отменено");
       }
       return NextResponse.json({ ok: true });
+    }
+
+    if (text === "/delete") {
+      try {
+        const hasQuote = await prisma.user.findUnique({
+          where: {
+            telegramId: userId,
+          },
+        });
+        if (hasQuote && hasQuote.quote) {
+          await prisma.user.delete({
+            where: {
+              telegramId: userId,
+            },
+          });
+        }
+        await sendMessage(chatId, "Ваша цитата удалена");
+      } catch {
+        await sendMessage(chatId, "Ошибка удаления цитаты. У вас она точно есть?");
+      }
+      return NextResponse.json({ ok: true });
+    }
+
+    if (text === "/info") {
+      await sendMessage(
+        chatId,
+        "Напиши мне цитату и она появится на skileta.ru/quotes!\n\nДля написания новой цитаты напишите /new\nДля отмены написания цитаты напишите /cancel\nДля удаления своей цитаты напишите /delete"
+      );
     }
 
     if (!text || text.startsWith("/")) {
@@ -78,17 +106,15 @@ export async function POST(request: NextRequest) {
         const existingUser = await prisma.user.findUnique({
           where: { telegramId: userId },
         });
-
         if (existingUser) {
           await sendMessage(
             chatId,
             `У вас уже есть цитата: "${existingUser.quote}" — ${existingUser.quoteUsername}\n\nДля создания новой цитаты напишите /new`
           );
         } else {
-          userStates.set(userId, { quote: text, step: "waiting_username" });
           await sendMessage(
             chatId,
-            "Отправьте ник который будет отображаться на сайте\n\nДля отмены напишите /cancel"
+            "Для создания цитаты напишите команду /new"
           );
         }
       } catch {

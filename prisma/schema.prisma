@@ -16,4 +16,5 @@ model User {
   quote           String
   quoteUsername   String
   quoteTime       DateTime
+  isApproved      Boolean     @default(false)
 }
