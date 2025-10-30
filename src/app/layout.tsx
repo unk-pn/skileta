@@ -65,7 +65,7 @@ export default function RootLayout({
         <meta name="yandex-verification" content="c15ffb2a684f0997" />
         <meta
           name="google-site-verification"
-          content="jUiz7OlsEk3-9nwK6c3Cbwz18D6Hmr3mLt4a3"
+          content="jUiz7OlsEk3-9nwK6c3Cbwz18D6Hmr3mLt4a3YN1dZc"
         />
       </head>
       <body
