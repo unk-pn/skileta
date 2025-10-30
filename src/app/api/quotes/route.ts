@@ -4,10 +4,13 @@ import { db } from "../../../../lib/db";
 export async function GET() {
   try {
     const quotes = await db.user.findMany({
+      where: {
+        isApproved: true,
+      },
       orderBy: {
         quoteTime: "desc",
-      }
-    })
+      },
+    });
 
     return NextResponse.json(quotes);
   } catch (error) {
