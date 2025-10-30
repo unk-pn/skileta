@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 const userStates = new Map<
   string,
-  { quote: string; step: "waiting_username" }
+  { quote: string; step: "waiting_quote" | "waiting_username" }
 >();
 
 export async function POST(request: NextRequest) {
@@ -91,6 +91,7 @@ export async function POST(request: NextRequest) {
       if (userStates.has(userId)) {
         userStates.delete(userId);
       }
+      userStates.set(userId, { quote: "", step: "waiting_quote" });
       await sendMessage(chatId, "Напишите цитату:");
       return NextResponse.json({ ok: true });
     }
@@ -141,36 +142,46 @@ export async function POST(request: NextRequest) {
     if (userStates.has(userId)) {
       const savedData = userStates.get(userId)!;
 
-      try {
-        await prisma.user.upsert({
-          where: { telegramId: userId },
-          update: {
-            quote: savedData.quote,
-            quoteTime: new Date(),
-            quoteUsername: text,
-            isApproved: false,
-          },
-          create: {
-            telegramId: userId,
-            username: msg.from?.username || "Анон",
-            chatId: String(chatId),
-            quote: savedData.quote,
-            quoteTime: new Date(),
-            quoteUsername: text,
-            isApproved: false,
-          },
-        });
+      if (savedData.step === "waiting_quote") {
+        // Пользователь написал цитату, теперь ждем username
+        userStates.set(userId, { quote: text, step: "waiting_username" });
+        await sendMessage(chatId, "Теперь напишите имя автора цитаты:");
+        return NextResponse.json({ ok: true });
+      }
 
-        userStates.delete(userId);
-        await SendMessageToModerator(
-          savedData.quote,
-          text,
-          msg.from?.username,
-          userId
-        );
-        await sendMessage(chatId, "Цитата отправлена на модерацию!");
-      } catch {
-        await sendMessage(chatId, "Ошибка сохранения");
+      if (savedData.step === "waiting_username") {
+        // Пользователь написал username, сохраняем в базу
+        try {
+          await prisma.user.upsert({
+            where: { telegramId: userId },
+            update: {
+              quote: savedData.quote,
+              quoteTime: new Date(),
+              quoteUsername: text,
+              isApproved: false,
+            },
+            create: {
+              telegramId: userId,
+              username: msg.from?.username || "Анон",
+              chatId: String(chatId),
+              quote: savedData.quote,
+              quoteTime: new Date(),
+              quoteUsername: text,
+              isApproved: false,
+            },
+          });
+
+          userStates.delete(userId);
+          await SendMessageToModerator(
+            savedData.quote,
+            text,
+            msg.from?.username,
+            userId
+          );
+          await sendMessage(chatId, "Цитата отправлена на модерацию!");
+        } catch {
+          await sendMessage(chatId, "Ошибка сохранения");
+        }
       }
     } else {
       try {
