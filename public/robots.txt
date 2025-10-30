@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+Sitemap: https://skileta.ru/sitemap.xml
+
+# Запретить индексацию API routes
+Disallow: /api/

@@ -1,10 +1,9 @@
+import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import { Jaini_Purva } from "next/font/google";
 
-import "./globals.css";
-import PoweredBy from "@/components/global/PoweredBy/PoweredBy";
 import { Header } from "@/components/global/Header/Header";
 import { Footer } from "@/components/global/Footer/Footer";
 
@@ -21,17 +20,43 @@ const jainiPurva = Jaini_Purva({
 });
 
 export const metadata: Metadata = {
-  title: "skileta",
-  description: "skileta's personal website",
+  title: {
+    template: "%s | skileta",
+    default: "skileta - Памятная страница Deceit 1",
+  },
+  description:
+    "Памятный сайт в честь игры Deceit 1 и ее сообщества. Вы можете поделиться своими воспоминаниями, историями и пожеланиями для всех, кто играл с вами в одних матчах.",
+  keywords: ["skileta", "deceit"],
+  authors: [{ name: "unk_pn" }],
+  creator: "unk_pn",
+  publisher: "unk_pn",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "ru_RU",
+    url: "https://skileta.ru",
+    title: "skileta",
+    description: "Памятный сайт в честь игры Deceit 1 и ее сообщества",
+    siteName: "skileta",
+  },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <body
         className={`${jost.variable} ${jainiPurva.variable} ${jost.className}`}
       >
