@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description:
     "Памятный сайт в честь игры Deceit 1 и ее сообщества. Вы можете поделиться своими воспоминаниями, пожеланиями для всех, кто играл с вами.",
-  keywords: ["skileta", "deceit"],
+  keywords: ["skileta", "deceit", "скилета", "скиллета", "скилетта", "десит", "дисит"],
   authors: [{ name: "unk_pn" }],
   creator: "unk_pn",
   publisher: "unk_pn",
